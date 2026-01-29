@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Валентинка 💘</title>
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #ffe6ea;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 20px 40px;
+      font-size: 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .yes-button {
+      background: #4caf50;
+      color: white;
+    }
+
+    .no-button {
+      background: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Будеш моєю валентинкою? 💘</h1>
+
+  <div class="buttons">
+    <button class="yes-button" onclick="yesClick()">ТАК</button>
+    <button class="no-button" onclick="noClick()">НІ</button>
+  </div>
+
+  <script>
+    let messages = [
+      "Ти впевнена?",
+      "Точно впевнена?",
+      "Мені стане сумно 😢",
+      "Дуже-дуже сумно…",
+      "Останній шанс 💔"
+    ];
+
+    let index = 0;
+
+    function noClick() {
+      const noBtn = document.querySelector(".no-button");
+      const yesBtn = document.querySelector(".yes-button");
+
+      noBtn.textContent = messages[index];
+      index = (index + 1) % messages.length;
+
+      const yesSize = parseFloat(getComputedStyle(yesBtn).fontSize);
+      const noSize = parseFloat(getComputedStyle(noBtn).fontSize);
+
+      yesBtn.style.fontSize = yesSize * 1.3 + "px";
+      noBtn.style.fontSize = noSize * 0.8 + "px";
+    }
+
+    function yesClick() {
+      document.body.innerHTML = "<h1>Урааа! 💖 Я дуже радий!</h1><p>Ти зробила мене щасливим 😊</p>";
+    }
+  </script>
+
+</body>
+</html>
